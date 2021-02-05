@@ -38,9 +38,17 @@ if __name__ == '__main__':
     cur = conn.cursor()
     sql = "SELECT * FROM test"
     a = cur.execute(sql)
-
     for row in a:
-        print(len(row))
+        print(str(row[0])+str(row[1])+'\n')
 
+
+    sql = "insert into test values(999,999)"
+    a = cur.execute(sql)
+    conn.commit()
+
+    sql = "SELECT * FROM test"
+    a = cur.execute(sql)
+    for row in a:
+        print(str(row[0])+str(row[1])+'\n')
 
 
